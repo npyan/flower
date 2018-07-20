@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		@charset "utf-8";
+		/*css Document*/
+		body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+		body{font-size: 12px;}
+		img{border: none;}
+		li{list-style: none;}
+		input,select,textarea{outline: none;border: none;}
+		textarea{resize: none;}
+		a{text-decoration: none;color: #656565;}
+		.clearfix:after{content:"";display: block;clear:both;}
+		.clearfix{zoom:1;}
+		.fl{float: left;}
+		.fr{float: right;}
+		.hide{display: none;}
+		.show{display: none;}
+	/*公用*/
+		.comWidth{width: 1200px;margin:0 auto;}
+		.fl{float: left;}
+		.fr{float: right;}
+		body{background: rgba(250,223,223,.3);}
+		.height-15{height: 15px;}
+		.height-30{height: 20px;}
+		/*头部*/
+		.headerTop{height: 31px;background: #ffc0cb;color: #666;}
+		.left-area, .right-area{font:14px/31px "Microsoft YaHei","微软雅黑";}
+		.collection{font-weight: bold;}
+		.headerTop a:hover{color: red;text-decoration: underline;}
+		/*logo*/
+		.logoBar{height: 85px;background: #f7768d;}
+		.logo{padding-left: 40px;padding-top: 12px;}
+		.searchBox{width: 430px;padding-left: 185px;padding-top: 22px;}
+		.search-text{height: 33px;width:350px;line-height: 35px;border: 1px solid #fff;background: none;box-shadow: 0 0 5px #fff; text-indent: 8px;}
+		.search-btn{height: 35px;width: 70px;border: 1px solid #fff;background: #fff;box-shadow: 0 0 5px #fff;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+		.shop-car{width: 150px;height: 35px;background:pink;margin-top: 22px;margin-right: 60px;display: inline-block;color: 
+			#fff;}
+		.shop-car-text{width: 90px;height: 100%;line-height: 35px;border-right: 1px solid #ccc;display: inline-block;background: url(image/shop.png) 8px center no-repeat;text-indent: 40px;}
+		.shop-car-num{width: 27px;height: 35px;border-left: 1px solid #ccc;background: url(image/sj.png) 33px center no-repeat;text-align: right;padding-right: 30px;display: inline-block;text-align: center;line-height: 35px;}
+		/*全部分类*/
+		.navBar{height: 35px;background:#ef506d;color: #fff;}
+		.shop-class{width: 200px;position: relative;padding-left: 50px;z-index: 1;}
+		.shop-class-icon{float: left;height: 32px;padding-top: 3px;}
+		.shop-class-icon span{display:block;width: 20px;height: 2px;background: #fff;margin:6px 0 0 20px;}
+		.all-class{float:left;font-size: 14px;height: 35px;line-height: 35px;padding-left: 10px;}
+		.shop-class-show{background: rgba(240,80,110,.2);position: absolute;top: 35px;left: 0;width: 100%;padding-top: 10px;display: none;}
+		.shop-class:hover .shop-class-show{display: block;}
+		.item-bg{border-bottom: 1px solid #ffc9c9;}
+		.shop-class-item{overflow: hidden;margin:10px;}
+		.shop-class-item a{font-size: 14px;color: #ef506d;text-decoration: none;}
+		.item-cont{float: left;margin-left: 5px;}
+		.item-cont a{padding:0 5px;}
+		.item-cont a:hover{color: red;font-weight: bold;text-decoration:underline;}
+		/*导航*/
+		.nav{line-height: 35px;}
+		.nav li{float: left;}
+		.nav li:hover{background: #c5334e;}
+		.nav li a{height: 36px;display: inline-block;padding: 0 35px;color: #fff;font-size: 14px;line-height: 36px;}
+		.nav .active{background: #c5334e;}
+		
+		/*footer*/
+		.footer{text-align: center;background: #f9b0bd;padding: 30px 0;line-height: 25px;margin-top: 10px;}
+		.footer p, .footer p a{color: #fff;}
+		.footer i{font-style: normal;margin:0 10px;}
+		.footer a:hover{color:#ef506d; }
+		/*产品描述 左*/
+		.dd{padding-left: 75px;}
+		.description{border: 1px solid #ccc;background: #fff;}
+		.description .left-area{width: 350px;}
+		.description .right-area{width: 847px;border-left: 1px solid #ccc;}
+		.description-img{text-align: center;padding-top: 20px;height: 347px;}
+		.sm-img{width:300px;margin:0 auto; margin-bottom: 10px;}
+		.sm-img li{float: left;margin:0 2px;}
+		.sm-img img{position:relative;border: 1px solid #ccc;max-height: 56px;max-width: 56px;}
+		.sm-img .active{border-color:#c5334e;position: relative;}
+		
+
+		
+		/*产品描述 右*/
+		.des-content{padding: 10px;color: #666;}
+		.des-content-tit{font:bold 18px/22px "Microsoft YaHei","微软雅黑";padding: 12px 25px;color: #999;}
+		/*价格*/
+		.des-content .dl{margin-bottom: 8px;}
+		.des-content .dt{width: 75px;float: left;color: #666;text-indent: 15px;line-height: 25px;}
+		.des-money{font-size: 18px;color: #f30;font-family: Verdana;}
+		.des-money em{font-size: 12px;font-style: normal;}
+		/*优惠*/
+		.hg{display: inline-block;line-height: 31px;font-size: 12px;}
+		.hg em{float: left;font-style: normal;line-height: 18px;}
+		.hg-icon{width: 55px;height: 18px;display: inline-block;background: url(icon/bg.png) left top no-repeat;color: #fff;font-style: normal;text-indent: 16px;margin-right: 10px;float: left;margin-top: 5px;}
+		/*送货*/
+		.des-position{background: #f2f2f2;padding: 15px 0;font-size: 12px;}
+		.select{border: 1px solid #999;height: 22px;line-height: 22px;float: left;background:#fff;padding:0 20px 0 10px; position: relative;z-index: 4;}
+		.select h3{font-size: 12px;font-weight: normal;}
+		.select span{position: absolute;right: 0;top: 0;height: 100%;width: 20px;background: url(image/sj.png) center center no-repeat;}
+		.show-select{position: absolute;left: -1px;top: 22px;background: #fff;width: 100%;border:1px solid #999;display: none; }
+		.show-select li{padding-left: 10px;}
+		.thegoods{line-height: 24px;padding-left: 10px;font-size: 12px;display: inline-block;}
+		/*选择颜色*/
+		.colorselect{line-height: 35px;}
+		.des-item{color: #666;padding: 0 26px;border: 1px solid #ccc;float: left;background: #fff;margin-right: 10px;}
+		.des-item-active{border-color: #317ee7;}
+		/*选择规格*/
+		.des-item-sm{padding: 0 5px;margin-bottom: 10px;}
+		.des-content .des-select-more{line-height: 55px;}
+		/*数量*/
+		.des-number{border: 1px solid #b2b2b2;height: 32px;width: 82px;float: left;}
+		.des-number div{height: 100%;float: left;}
+		.reduction, .plus{width: 15px;background: #f2f2f2;line-height: 32px;text-align: center;color: #333;}
+		.reduction{border-right: 1px solid #fff;}
+		.plus{border-left: 1px solid #fff;}
+		.des-input{width: 42px;background: #fff;padding: 0 4px;overflow: hidden;}
+		.des-input input{width: 100%;height: 32px;line-height: 32px\9;text-align: center;}
+		.buy-limit{line-height: 32px;float: left;padding-left: 10px;color: #666;}
+		.buy-limit em{font-style: normal;color: #fc7700;font-weight: bold;}
+		.des-content .des-num{line-height: 32px;}
+		/*已选择 加入购物车 立即购买*/
+		.des-select{font-weight: bold;margin: 22px 0 12px;text-indent: 17px;color: #666;}
+		.des-select span{color: #0479c9;}
+		.shop-buy{text-align: center;}
+		.shopping-btn, .buy-btn{display: inline-block;width: 184px;height:48px;text-align: center;font-size: 18px;line-height: 48px;}
+		.shopping-btn{background: #ffeded;border: 1px solid #FF0036;color: #FF0036;}
+		.buy-btn{background: #ff0036;border: 1px solid #ff0036;color: #fff;}
+		.line{width: 1px;height: 90px;overflow: hidden;background: #ccc;display: inline-block;margin:0 40px;}
+		.line, .shopping-btn, .buy-btn{vertical-align: middle;}
+		.Prompt{color: #999;text-indent: 17px;}
+		
+
+		/*店铺热销*/
+		.des-info .left-area{width:290px;}
+		.des-info .right-area{width:900px;}
+		.recommend{border: 1px solid #ccc;background: #fff;}
+		.recommend .tit{font-size: 16px;height: 39px;line-height: 39px;background: #f3f3f3;text-indent: 15px;border-bottom: 1px solid #ccc;color: #666;}
+		.item-img{text-align: center;margin-top: 10px;}
+		.item-img img{max-width: 261px;max-height: 337px;}
+		.item{padding: 0 10px;}
+		.item p{line-height: 24px;}
+		.item .item-money{color: #ec0a0a;font-weight: bold;}
+		.item .item-text:hover{color:#ec0a0a;text-decoration: underline; }
+		/*产品介绍*/
+		.des-infocontent{background: #fff;}
+		.des-tit{height: 40px;border: 1px solid #ccc;background: linear-gradient(#f5f5f5,#ebebeb);}
+		.des-tit li{width:50%;float: left;text-align: center;font:14px/40px '宋体';border-right: 1px solid #ccc;margin-left: -1px;}
+		.des-tit .active{background: #f7768d;color: #fff;font-weight: bold;position: relative;}
+		.des-tit span{background: url(image/stars.png) left center no-repeat;padding-left: 32px;}
+		.des-details{padding: 20px;border-bottom: 1px solid #ccc;color: #666;}
+		.des-details-list li{display: inline;float: left;width: 215px;height: 28px;overflow: hidden;text-indent: 5px;line-height: 28px;white-space: nowrap;text-overflow: ellipsis;font-size: 12px; }
+		.des-details-img{text-align: center;padding-top: 10px;}
+		/*商品评价*/
+		.public-width{width: 790px;margin:0 auto;}
+		.des-info-cont{width: 790px margin:0 auto;}
+		.shopdes-tit{font-size: 14px;color: #656565;height: 38px;line-height: 38px;padding-left:10px;}
+		.score-box{height: 120px;padding-left: 10px;}
+		.score{float: left;margin-right: 10px;}
+		.score em{font-style: normal;font-size: 18px;color: #808092;}
+		.score span{font-size: 50px;color: #ff8f00;}
+		.score-speed{float:left;width: 450px;line-height: 16px;margin-top: 14px;font-size: 12px;position: relative;}
+		.score-speed-text{overflow: hidden;height: 16px;background: #bdbdbd;color: #fff;margin-bottom: 10px;}
+			/*.score-speed-text{height: 100%};*/
+		.score-speed-text li{float: left;}
+		.score-speed-text .speed-01{width: 114px;text-indent: 26px;}
+		.score-speed-text .speed-02{width: 82px;}
+		.score-speed-text .speed-03{width: 76px;}
+		.score-speed-text .speed-04{width: 65px;}
+		.score-num{position: absolute;left: 94%;top: -18px;width: 25px;height: 14px;background: #7f7f7f;text-align: center;}
+		.score-num i{border-width: 4px;border-style: solid dashed dashed dashed;border-color: #7f7f7f transparent transparent transparent;width: 0;height: 0;}
+		.score-speed p{color: #66667d;}
+		/*满意切换*/
+		.review-tab{height: 32px;background: #fdf5f5;}
+		.revie{line-height: 32px;height: 100%;padding-left: 20px;}
+		.revie li{float: left;height: 100%;margin-right: 40px;}
+		.revie li a{display: inline-block;height: 30px;padding: 0 5px;}
+		.revie .active{color: #317ee7;border-bottom: 2px solid #317ee7;font-weight: bold;margin-bottom: -2px;position: relative;}
+		.review-sort{line-height: 32px;padding-right: 10px;}
+		.review-sort a{display: inline-block;height: 20px;line-height: 20px;border: 1px solid #ccc;padding: 0 20px 0 6px;background: url(icon/stars.png) right center no-repeat;}
+
+		.review-list{padding-top: 18px;margin-top: 10px;}
+		.review-userhead{width: 170px;}
+		.review-user{width: 60px;text-align: center;margin-left: 40px;}
+		.review-user img{width: 60px;height: 60px;display: block;}
+		.review-user p{line-height: 20px;color: #77778c;}
+		.review-cont{padding-left: 170px;}
+		.stars-box .stars{margin-top: 1px;}
+		.stars-text{font-weight: bold;padding-left: 10px;}
+		.review-t{height: 24px;padding-top: 5px;}
+		.review-cont p{line-height: 30px;color: #777;}
+		.cai, .ding{color: #085c9b;}
+		.cai{margin-right: 12px;}
+		/*分页*/
+		.page{text-align: center;position: relative;z-index: 2;}
+		.page a{display:inline-block;border: 1px solid #333;height: 24px;line-height: 24px;padding: 0 12px;margin-left: 5px;}
+		.page .hl{display: inline-block;padding: 0 12px;margin:0 2px;}
+		.page-more{padding-left: 14px;display: inline-block;height: 24px;line-height: 24px;}
+		.page-num{width: 29px;padding: 0 3px;border: 1px solid #ccc;height: 24px;line-height: 24px\9;text-align: center;margin-left: 4px;}
+		.page-btn{width: 44px;height: 24px;line-height: 24px;background: #e8e8e8;border: 1px solid #ccc;}
+		.page-btn-text{padding: 0 8px 0 6px;}
+		.page a, .page span, .page input{vertical-align: middle;position: relative;}
+
+	</style>
+</head>
+<body>
+<!-- header开始 -->
+ 	<div class="headerBar">
+		<!-- 头部开始 -->
+		<div class="headerTop">
+			<div class="comWidth clearfix">
+				<div class="left-area fl">
+					<a href="index.html" class="collection">花的首页</a>
+				</div>
+				<div class="right-area fr">
+					欢迎来到花的首页
+					<a href="login.html">[登录]</a><a href="register.html">[免费注册]</a>
+				</div>
+			</div>	
+		</div><!-- 头部结束 -->
+		<!-- logo开始 -->
+		<div class="logoBar">
+			<div class="comWidth cl">
+				<div class="logo fl">
+					<a href="index.html"><img src="image/logo.png" alt=""></a>
+				</div>
+				<div class="searchBox fl">
+					<input type="text" class="search-text fl" placeholder="请输入关键词">
+					<input type="button" class="search-btn" value="搜索">
+				</div>
+				<div class="shop-car fr">
+					<span class="shop-car-text fl">购物车</span>
+					<span class="shop-car-num fl">0</span>
+				</div>
+			</div>
+		</div><!-- logo结束 -->
+		<!-- 导航开始 -->
+		<div class="navBar">
+			<div class="comWidth clearfix">
+				<div class="shop-class fl">
+					<div class="shop-class-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<span class="all-class">全部分类</span>
+					<div class="shop-class-show">
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">玫瑰</a>
+									<a href="">木芙蓉</a>
+									<a href="">郁金香</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">紫罗兰</a>
+									<a href="">山茶花</a>
+									<a href="">茉莉</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">石竹</a>
+									<a href="">茉莉</a>
+									<a href="">水仙</a>
+									<a href="">茉莉</a>
+									<a href="">小草兰</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">金鱼草</a>
+									<a href="">银牙柳</a>
+									<a href="">茉莉</a>
+									<a href="">玉兰</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">迎春花</a>
+									<a href="">桃</a>
+									<a href="">丁香</a>
+									<a href="">茉莉</a>
+									<a href="">梅花</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">海棠</a>
+									<a href="">含笑花</a>
+									<a href="">荷花</a>
+									<a href="">风信子</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">春兰</a>
+									<a href="">桂花</a>
+									<a href="">栀子花</a>
+									<a href="">金钟</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">千日红</a>
+									<a href="">水仙</a>
+									<a href="">慈如花</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">石蒜</a>
+									<a href="">瓜叶菊</a>
+									<a href="">凤仙花</a>
+									<a href="">茉莉</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<ul class="nav fl clearfix">
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="">仿真花</a></li>
+					<li><a href="">鲜花订购</a></li>
+					<li><a href="">开业花篮</a></li>
+					<li><a href="">绿植租售</a></li>
+					<li><a href="">园艺资材</a></li>
+					<li><a href="">联系我们</a></li>
+				</ul>
+			</div>
+		</div><!-- 导航结束 -->				
+	</div> <!-- header结束 -->
+	<div class="height-15"></div>
+	<!-- 产品详情页开始 -->
+	<div class="description-info">
+		<div class="comWidth">
+			<div class="description clearfix">
+				<div class="left-area fl">
+					<div class="description-img">
+						<div class="big-img"><img src="image/rent08.jpg" alt=""></div>
+					</div>
+					<ul class="sm-img clearfix">
+						<li><a href=""><img src="image/sm-02.png" alt="" class="active"></a></li>
+						<li><a href=""><img src="image/sm-02.png" alt=""></a></li>
+						<li><a href=""><img src="image/sm-02.png" alt=""></a></li>
+						<li><a href=""><img src="image/sm-02.png" alt=""></a></li>
+						<li><a href=""><img src="image/sm-02.png" alt=""></a></li>
+					</ul>
+				</div>
+				<div class="right-area fr">
+					<div class="des-content">
+						<h3 class="des-content-tit">七夕鲜花满天星鲜花满天星毕业礼花束情人节七彩满天永生花干花束男女友闺蜜生日礼盒 满天星+香皂花混搭韩式花束</h3>
+						<div class="dl clearfix">
+							<div class="dt">价格</div>
+							<div class="dd des-money"><em>￥</em>199.00</div>
+						</div>
+						<div class="dl clearfix">
+							<div class="dt">优惠</div>
+							<div class="dd"><span class="hg"><i class="hg-icon"><em>满换购</em></i>满100元减5元，满200元减10元，满300元减20元</span></div>
+						</div>
+						<div class="des-position">
+							<div class="dl clearfix">
+								<div class="dt">送到</div>
+								<div class="dd clearfix">
+									<div class="select">
+										<h3>海淀区五环内</h3><span></span>
+										<ul class="show-select">
+											<li>广东</li>
+											<li>广西</li>
+											<li>钦州</li>
+										</ul>
+									</div>
+									<span class="thegoods">有货，可当日出库</span>
+								</div>
+							</div>
+							<div class="dl clearfix">
+								<div class="dt colorselect">选择颜色</div>
+								<div class="dd clearfix">
+									<div class="des-item des-item-active">红色</div>
+									<div class="des-item">黄色</div>
+									<div class="des-item">绿色</div>
+								</div>
+							</div>
+							<div class="dl clearfix">
+								<div class="dt des-select-more">选择规格</div>
+								<div class="dd clearfix">
+									<div class="des-item des-item-active des-item-sm">WIFI 16G</div>
+									<div class="des-item des-item-sm">WIFI 16G</div>
+									<div class="des-item des-item-sm">WIFI 16G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 32G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 64G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 16G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 16G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 16G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 16G</div>
+									<div class="des-item des-item-sm">WIFI Cellular 16G</div>
+
+								</div>								
+							</div>
+							<div class="dl clearfix">
+								<div class="dt des-num">数量</div>
+								<div class="dd">
+									<div class="des-number clearfix">
+										<div class="reduction">-</div>
+										<div class="des-input">
+											<input type="text">
+										</div>
+										<div class="plus">+</div>
+									</div>
+									<span class="buy-limit">限购<em>9</em>件</span>
+								</div>
+							</div>
+						</div>					
+					</div>
+					<!--已选择 加入购物车 立即购买 -->
+					<div class="des-select">
+						已选择<span>“白色|WIFI 16G”</span>
+					</div>
+					<div class="shop-buy">
+						<a href="" class="shopping-btn">加入购物车</a>
+						<span class="line"></span>
+						<a href="shopCar.html" class="buy-btn">立即购买</a>
+					</div>
+					<div class="Prompt">
+						注意：此商品可提供普通发票，不提供增值税发票。
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 产品详情页结束 -->
+	<div class="height-15"></div>
+	<!-- 同价位 -->
+	<div class="des-info comWidth clearfix">
+		<div class="left-area fl">
+			<div class="recommend">
+				<h3 class="tit">店铺热销</h3>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent01.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent01.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent01.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent01.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent01.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent02.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent03.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent04.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent05.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent06.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent07.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent08.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<a href=""><img src="image/rent09.jpg" alt=""></a>
+					</div>
+					<p><a href="" class="item-text">Canon佳能IXUS 132数码相机 粉色(1600像素2.7"LCD)</a></p>
+					<p><a href="" class="item-money">￥199.00</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="right-area fr">
+			<div class="des-infocontent">
+				<ul class="des-tit">
+					<li class="active"><span>产品介绍</span></li>
+					<li><span>商品评价(4725)</span></li>
+				</ul>
+				<div class="des-details">
+					<ul class="des-details-list clearfix">      
+            			<li>是否含花瓶:&nbsp;不含花瓶</li>            
+            			<li>货号:&nbsp;水仙百合</li>           
+						 <li>颜色分类:&nbsp;水仙百合一扎10支</li>            
+           		 		<li>品牌:&nbsp;Crazy Gardener</li>
+           		 		<li>适用场景:&nbsp;爱意表达 生日 婚礼</li>
+            			<li>鲜花主花材:&nbsp;百合</li>
+            			<li>适用对象:&nbsp;爱人 老师 客户 领导/长辈 朋友/同事</li>
+            			<li>鲜花朵数:&nbsp;30朵</li>
+            			<li>适用节日:&nbsp;情人节 春节 元旦 中秋节 七夕 白色情人节</li>
+            			<li>鲜花绿植工艺:&nbsp;鲜花(鲜切花)</li>
+            			<li>鲜花规格(直径X高):&nbsp;1cm*30cm</li>
+            			<li>花束辅材:&nbsp;包装袋</li>
+					</ul>
+				</div>
+    			<div class="des-details-img">
+					<img src="image/big.jpg" alt="">
+					<img src="image/big1.jpg" alt="">
+					<img src="image/big2.jpg" alt="">
+					<img src="image/big3.jpg" alt="">
+					<img src="image/big4.jpg" alt="">
+    			</div>
+			</div>
+			<div class="height-15"></div>
+			<div class="des-infocontent">
+				<div class="public-width">
+					<h3 class="shopdes-tit ">商品评价</h3>
+					<div class="score-box clearfix">
+						<div class="score">
+							<span>4.7</span><em>分</em>
+						</div>
+						<div class="score-speed">
+							<ul class="score-speed-text">
+								<li class="speed-01">非常不满意</li>
+								<li class="speed-02">不满意</li>
+								<li class="speed-03">一般</li>
+								<li class="speed-04">满意</li>
+								<li>非常满意</li>
+							</ul>
+							<div class="score-num">
+								4.7
+								<i></i>
+							</div>
+							<p>共18939位慕课网友参与评分</p>
+						</div>
+					</div>
+				</div>
+				<div class="review-tab">
+					<ul class="revie fl">
+						<li><a href="" class="active">全部</a></li>
+						<li><a href="">满意（17490）</a></li>
+						<li><a href="">一般（549）</a></li>
+						<li><a href="">不满意（743）</a></li>
+					</ul>
+					<div class="review-sort fr">
+						<a href="" class="review-time">时间排序</a>
+						<a href="" class="review-reco">推荐排序</a>
+					</div>
+				</div>
+				<div class="public-width">
+					<div class="review-listbox">
+						<div class="review-list clearfix">
+							<div class="review-userhead fl">
+								<div class="review-user">
+									<img src="image/user-1.png" alt="">
+									<p>61***42</p>
+									<p>金色会员</p>
+								</div>
+							</div>
+							<div class="review-cont">
+								<div class="review-t">
+									<div class="stars-box fl">
+										<span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+									</div>
+									<span class="stars-text fl">5分 满意</span>
+								</div>
+								<p>第一次购买，发货很快东西收到之后马上查看了，和预想的一样</p>
+								<p><a href="" class="cai">踩(0)</a><a href="" class="ding">顶(0)</a></p>
+							</div>
+						</div>
+						<div class="review-list clearfix">
+							<div class="review-userhead fl">
+								<div class="review-user">
+									<img src="image/user-1.png" alt="">
+									<p>61***42</p>
+									<p>金色会员</p>
+								</div>
+							</div>
+							<div class="review-cont">
+								<div class="review-t">
+									<div class="stars-box fl">
+										<span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+									</div>
+									<span class="stars-text fl">5分 满意</span>
+								</div>
+								<p>东西收到以后马上查看，发现与图片描述一致，超级喜欢，卖家发货速度很快，，服务也很到位，给老板点个赞</p>
+								<p><a href="" class="cai">踩(0)</a><a href="" class="ding">顶(0)</a></p>
+							</div>
+						</div>
+						<div class="review-list clearfix">
+							<div class="review-userhead fl">
+								<div class="review-user">
+									<img src="image/user-1.png" alt="">
+									<p>61***42</p>
+									<p>金色会员</p>
+								</div>
+							</div>
+							<div class="review-cont">
+								<div class="review-t">
+									<div class="stars-box fl">
+										<span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+									</div>
+									<span class="stars-text fl">5分 满意</span>
+								</div>
+								<p>质量非常好，与卖家描述的完全一致，非常满意卖家的服务太棒了</p>
+								<p><a href="" class="cai">踩(0)</a><a href="" class="ding">顶(0)</a></p>
+							</div>
+						</div>
+						<div class="review-list clearfix">
+							<div class="review-userhead fl">
+								<div class="review-user">
+									<img src="image/user-1.png" alt="">
+									<p>61***42</p>
+									<p>金色会员</p>
+								</div>
+							</div>
+							<div class="review-cont">
+								<div class="review-t">
+									<div class="stars-box fl">
+										<span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+									</div>
+									<span class="stars-text fl">5分 满意</span>
+								</div>
+								<p>挺不错的，信赖慕课</p>
+								<p><a href="" class="cai">踩(0)</a><a href="" class="ding">顶(0)</a></p>
+							</div>
+						</div>
+						<div class="review-list clearfix">
+							<div class="review-userhead fl">
+								<div class="review-user">
+									<img src="image/user-1.png" alt="">
+									<p>61***42</p>
+									<p>金色会员</p>
+								</div>
+							</div>
+							<div class="review-cont">
+								<div class="review-t">
+									<div class="stars-box fl">
+										<span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span><span class="stars"></span>
+									</div>
+									<span class="stars-text fl">5分 满意</span>
+								</div>
+								<p>挺不错的，信赖慕课</p>
+								<p><a href="" class="cai">踩(0)</a><a href="" class="ding">顶(0)</a></p>
+							</div>
+						</div>
+					</div>				
+					<div class="height-15"></div>
+					<!-- 分页 -->	
+					<div class="page">
+						<a href="">上一页</a>
+						<a href="">1</a>
+						<a href="">2</a>
+						<a href="">3</a>
+						<a href="">4</a>
+						<a href="">5</a>
+						<a href="">6</a>
+						<span class="hl">...</span>
+						<a href="">200</a>
+						<a href="">下一页</a>
+						<span class="page-more">共200页,到第</span>
+						<input type="text" class="page-num">
+						<span class="page-btn-text">页</span>
+						<input type="button" value="确定" class="page-btn">
+						<div class="height-30"></div>
+					</div>
+					<div class="height-20"></div>	
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<!-- footer开始 -->
+	<div class="footer">
+		<p>
+			<a href="">花卉简介</a><i>|</i>
+			<a href="">玫瑰杜鹃</a><i>|</i>
+			<a href="">牡丹</a><i>|</i>
+			<a href="">樱花花印</a><i>|</i>
+			<a href="">客服热线：00000000000</a>
+		</p>
+		<p>&copy 2018 版权所有 版权所有 版权所有 版权所有 版权所有 版权所有 版权所有</p>
+	</div>
+	<!-- footer结束  -->
+
+
+</body>
+</html>
+

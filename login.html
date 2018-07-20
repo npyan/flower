@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		@charset "utf-8";
+		/*css Document*/
+		body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+		body{font-size: 12px;}
+		img{border: none;}
+		li{list-style: none;}
+		input,select,textarea{outline: none;border: none;}
+		textarea{resize: none;}
+		a{text-decoration: none;color: #656565;}
+		.clearfix:after{content:"";display: block;clear:both;}
+		.clearfix{zoom:1;}
+		.fl{float: left;}
+		.fr{float: right;}
+		.hide{display: none;}
+		.show{display: none;}
+	/*公用*/
+		.comWidth{width: 1200px;margin:0 auto;}
+		.fl{float: left;}
+		.fr{float: right;}
+		/*头部*/
+		.headerTop{height: 31px;background: pink;}
+		.left-area, .right-area{font:14px/31px "Microsoft YaHei","微软雅黑";}
+		.collection{font-weight: bold;}
+		.headerTop a:hover{color: red;text-decoration: underline;}
+		/*logo*/
+		.logoBar{height: 85px;background: #f7768d;}
+		.logo{padding-left: 40px;padding-top: 12px;}
+		.searchBox{width: 430px;padding-left: 185px;padding-top: 22px;}
+		.search-text{height: 33px;width:350px;line-height: 35px;border: 1px solid #fff;background: none;box-shadow: 0 0 5px #fff; text-indent: 8px;}
+		.search-btn{height: 35px;width: 70px;border: 1px solid #fff;background: #fff;box-shadow: 0 0 5px #fff;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+		.shop-car{width: 150px;height: 35px;background:pink;margin-top: 22px;margin-right: 60px;display: inline-block;color: 
+			#fff;}
+		.shop-car-text{width: 90px;height: 100%;line-height: 35px;border-right: 1px solid #ccc;display: inline-block;background: url(image/shop.png) 8px center no-repeat;text-indent: 40px;}
+		.shop-car-num{width: 27px;height: 35px;border-left: 1px solid #ccc;background: url(image/sj.png) 33px center no-repeat;text-align: right;padding-right: 30px;display: inline-block;text-align: center;line-height: 35px;}
+		/*全部分类*/
+		.navBar{height: 36px;background:#ef506d;color: #fff;}
+		.shop-class{width: 200px;position: relative;padding-left: 50px;z-index: 1;}
+		.shop-class-icon{float: left;height: 32px;padding-top: 3px;}
+		.shop-class-icon span{display:block;width: 20px;height: 2px;background: #fff;margin:6px 0 0 20px;}
+		.all-class{float:left;font-size: 14px;height: 35px;line-height: 35px;padding-left: 10px;}
+		.shop-class-show{background: rgba(240,80,110,.2);position: absolute;top: 35px;left: 0;width: 100%;padding-top: 10px;display: none;}
+		.shop-class:hover .shop-class-show{display: block;}
+		.item-bg{border-bottom: 1px solid #ffc9c9;}
+		.shop-class-item{overflow: hidden;margin:10px;}
+		.shop-class-item a{font-size: 14px;color: #ef506d;text-decoration: none;}
+		.item-cont{float: left;margin-left: 5px;}
+		.item-cont a{padding:0 5px;}
+		.item-cont a:hover{color: red;font-weight: bold;text-decoration:underline;}
+		/*导航*/
+		.nav{line-height: 35px;}
+		.nav li{float: left;}
+		.nav li:hover{background: #c5334e;}
+		.nav li a{height: 36px;display: inline-block;padding: 0 35px;color: #fff;font-size: 14px;line-height: 36px;}
+		.nav .active{background: #c5334e;}
+		
+		/*banner*/
+		.banner{position: relative;}
+		/*reg*/
+		.reg-cont{width: 470px;height: 450px;background: rgba(255,255,255,.5);position: absolute;top: 65px;right: 360px;}
+		.reg-title{border-bottom: 1px solid #ccc;height: 65px;margin-bottom:35px;
+		}
+		.reg-title span{display:block;width:120px;color: red;font-size: 20px;line-height: 64px;border-bottom: 2px solid red;margin:0 auto;text-align: center;}
+		.reg-item, .login-btn-bar{padding: 0 45px; }
+		.reg-item li{margin-bottom: 35px;height: 44px;text-align: center;margin-bottom:30px;}
+		.reg-input{border: 1px solid #bfbfbf;height: 42px;width: 378px;color: #969696;text-indent: 8px;background: none;}
+		.reg-btn{width: 380px;height: 44px;background: #f99ed4;border-radius: 5px;color: #fff;font-size: 18px;}
+		.user-icon{background: url(image/user.png) 350px center no-repeat;}
+		.password-icon{background: url(image/password.png) 350px center no-repeat;}
+		.checked{position: relative;top: 2px;margin-right: 3px;}
+		.lab-color{color: #969696;}
+		.login-btn{float: right;display: inline-block;width: 115px;height: 30px;line-height: 30px;background: #f99ed4;text-align: center;color: #fff;border-radius: 5px;}
+
+
+		/*footer*/
+		.footer{text-align: center;background: #f9b0bd;padding: 30px 0;line-height: 25px;margin-top: 10px;}
+		.footer p, .footer p a{color: #fff;}
+		.footer i{font-style: normal;margin:0 10px;}
+		.footer a:hover{color:#ef506d; }
+
+		
+
+	</style>
+</head>
+<body>
+<!-- header开始 -->
+ 	<div class="headerBar">
+		<!-- 头部开始 -->
+		<div class="headerTop">
+			<div class="comWidth clearfix">
+				<div class="left-area fl">
+					<a href="index.html" class="collection">花的首页</a>
+				</div>
+				<div class="right-area fr">
+					欢迎来到花的首页
+					<a href="login.html">[登录]</a><a href="register.html">[免费注册]</a>
+				</div>
+			</div>	
+		</div><!-- 头部结束 -->
+		<!-- logo开始 -->
+		<div class="logoBar">
+			<div class="comWidth cl">
+				<div class="logo fl">
+					<a href="index.html"><img src="image/logo.png" alt=""></a>
+				</div>
+				<div class="searchBox fl">
+					<input type="text" class="search-text fl" placeholder="请输入关键词">
+					<input type="button" class="search-btn" value="搜索">
+				</div>
+				<div class="shop-car fr">
+					<span class="shop-car-text fl">购物车</span>
+					<span class="shop-car-num fl">0</span>
+				</div>
+			</div>
+		</div><!-- logo结束 -->
+		<!-- 导航开始 -->
+		<div class="navBar">
+			<div class="comWidth clearfix">
+				<div class="shop-class fl">
+					<div class="shop-class-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<span class="all-class">全部分类</span>
+					<div class="shop-class-show">
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">玫瑰</a>
+									<a href="">木芙蓉</a>
+									<a href="">郁金香</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">紫罗兰</a>
+									<a href="">山茶花</a>
+									<a href="">茉莉</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">石竹</a>
+									<a href="">茉莉</a>
+									<a href="">水仙</a>
+									<a href="">茉莉</a>
+									<a href="">小草兰</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">金鱼草</a>
+									<a href="">银牙柳</a>
+									<a href="">茉莉</a>
+									<a href="">玉兰</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">迎春花</a>
+									<a href="">桃</a>
+									<a href="">丁香</a>
+									<a href="">茉莉</a>
+									<a href="">梅花</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">海棠</a>
+									<a href="">含笑花</a>
+									<a href="">荷花</a>
+									<a href="">风信子</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">春兰</a>
+									<a href="">桂花</a>
+									<a href="">栀子花</a>
+									<a href="">金钟</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">千日红</a>
+									<a href="">水仙</a>
+									<a href="">慈如花</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">石蒜</a>
+									<a href="">瓜叶菊</a>
+									<a href="">凤仙花</a>
+									<a href="">茉莉</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<ul class="nav fl clearfix">
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="">仿真花</a></li>
+					<li><a href="">鲜花订购</a></li>
+					<li><a href="">开业花篮</a></li>
+					<li><a href="">绿植租售</a></li>
+					<li><a href="">园艺资材</a></li>
+					<li><a href="">联系我们</a></li>
+				</ul>
+			</div>
+		</div><!-- 导航结束 -->				
+	</div> <!-- header结束 -->
+	
+	<div class="banner">
+		<div class="bannerimg">
+			<img src="image/zhuce.jpg" alt="">
+		</div>
+		<div class="reg-cont">
+			<div class="reg-title">
+				<span>登录</span>
+			</div>
+			<ul class="reg-item">
+				<li><input type="text" class="reg-input user-icon" value="邮箱/用户名/手机号"></li>
+				<li><input type="paddword" class="reg-input password-icon" value="请输入密码"></li>
+				<li><input type="button" value="登录" class="reg-btn"></li>
+				<li><input type="checkbox" id="t1" class="checked"><label for="t1" class="lab-color">我已阅读并同意《用户协议》</label></li>
+			</ul>
+			<div class="login-btn-bar">
+				<a href="index.html" class="login-btn">免费注册 &gt;&gt;</a>
+			</div>
+		</div>
+	</div>
+	<!-- footer开始 -->
+	<div class="footer">
+		<p>
+			<a href="">花卉简介</a><i>|</i>
+			<a href="">玫瑰杜鹃</a><i>|</i>
+			<a href="">牡丹</a><i>|</i>
+			<a href="">樱花花印</a><i>|</i>
+			<a href="">客服热线：00000000000</a>
+		</p>
+		<p>&copy 2018 版权所有 版权所有 版权所有 版权所有 版权所有 版权所有 版权所有</p>
+	</div>
+	<!-- footer结束  -->
+
+
+</body>
+</html>

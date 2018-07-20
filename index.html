@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="css/swiper.min.css">
+	<style type="text/css">
+		@charset "utf-8";
+		/*css Document*/
+		body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+		body{font-size: 12px;}
+		img{border: none;}
+		li{list-style: none;}
+		input,select,textarea{outline: none;border: none;}
+		textarea{resize: none;}
+		a{text-decoration: none;color: #656565;}
+		.clearfix:after{content:"";display: block;clear:both;}
+		.clearfix{zoom:1;}
+		.fl{float: left;}
+		.fr{float: right;}
+		.hide{display: none;}
+		.show{display: none;}
+	/*公用*/
+		.comWidth{width: 1200px;margin:0 auto;}
+		.fl{float: left;}
+		.fr{float: right;}
+		/*头部*/
+		.headerTop{height: 31px;background: pink;color: #666;}
+		.left-area, .right-area{font:14px/31px "Microsoft YaHei","微软雅黑";}
+		.collection{font-weight: bold;}
+		.headerTop a:hover{color: red;text-decoration: underline;}
+		/*logo*/
+		.logoBar{height: 85px;background: #f7768d;}
+		.logo{padding-left: 40px;padding-top: 12px;}
+		.searchBox{width: 430px;padding-left: 185px;padding-top: 22px;}
+		.search-text{height: 33px;width:350px;line-height: 35px;border: 1px solid #fff;background: none;box-shadow: 0 0 5px #fff; text-indent: 8px;}
+		.search-btn{height: 35px;width: 70px;border: 1px solid #fff;background: #fff;box-shadow: 0 0 5px #fff;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+		.shop-car{width: 150px;height: 35px;background:pink;margin-top: 22px;margin-right: 60px;display: inline-block;color: 
+			#fff;}
+		.shop-car-text{width: 90px;height: 100%;line-height: 35px;border-right: 1px solid #ccc;display: inline-block;background: url(image/shop.png) 8px center no-repeat;text-indent: 40px;}
+		.shop-car-num{width: 27px;height: 35px;border-left: 1px solid #ccc;background: url(image/sj.png) 33px center no-repeat;text-align: right;padding-right: 30px;display: inline-block;text-align: center;line-height: 35px;}
+		/*全部分类*/
+		.navBar{height: 36px;background:#ef506d;color: #fff;}
+		.shop-class{width: 200px;position: relative;padding-left: 50px;z-index: 2;}
+		.shop-class-icon{float: left;height: 32px;padding-top: 3px;}
+		.shop-class-icon span{display:block;width: 20px;height: 2px;background: #fff;margin:6px 0 0 20px;}
+		.all-class{float:left;font-size: 14px;height: 35px;line-height: 35px;padding-left: 10px;}
+		.shop-class-show{background: rgba(240,80,110,.2);position: absolute;top: 35px;left: 0;width: 100%;padding-top: 10px;display: none;z-index: 2;}
+		.shop-class:hover .shop-class-show{display: block;}
+		.item-bg{border-bottom: 1px solid #ffc9c9;}
+		.shop-class-item{overflow: hidden;margin:10px;}
+		.shop-class-item a{font-size: 14px;color: #ef506d;text-decoration: none;}
+		.item-cont{float: left;margin-left: 5px;}
+		.item-cont a{padding:0 5px;}
+		.item-cont a:hover{color: red;font-weight: bold;text-decoration:underline;}
+		/*导航*/
+		.nav{line-height: 35px;}
+		.nav li{float: left;}
+		.nav li:hover{background: #c5334e;}
+		.nav li a{height: 36px;display: inline-block;padding: 0 35px;color: #fff;font-size: 14px;line-height: 36px;}
+		.nav .active{background: #c5334e;}
+		/*banner*/
+		.swiper-container{width: 1200px;height: 400px;overflow: hidden;position: relative;z-index: 1;}
+		.swiper-wrapper{position: absolute;}
+		.swiper-wrapper{z-index: 1;}
+		.swiper-slide{float: left;}
+		.swiper-slide.current{display: block!important;}
+		.swiper-wrapper img{width: 1200px;height: 400px;}		
+		.swiper-pagination{position: absolute;z-index: 2;bottom: 20px;left: 0;right: 0;margin:auto;}
+		.swiper-pagination li{width: 10px;height: 10px;background: #fff;margin:0 5px;border-radius: 50px;text-align: center;}
+		.swiper-pagination li.lis{background: #ef506d;}
+		.swiper-button-prev, .swiper-button-next{background:rgba(255,255,255,.3); position: absolute;width: 70px;height:70px;line-height: 70px;text-align: center;font-size: 45px;color: #fff;border-radius: 50px;top: 50%;margin-top: -35px;display: none;}
+		.bannerBar:hover .com{display: block;}
+		.swiper-button-prev{left: 10px;}
+		.swiper-button-next{right: 10px;}
+		/*产品展示title*/
+		.productTit{height: 44px;margin-top: 10px;}
+		.product-icon{background:url(image/shopicon.png) left top no-repeat; width: 44px;height: 44px;float: left;}
+		.product-tit-text{float:left;font-size: 24px;line-height: 44px;padding-left: 15px;font-weight: normal;}
+		.more-arrow{float: right;line-height: 44px;margin-right: 20px;}
+		.more-arrow:hover{color: red;text-decoration: underline;}
+		/*商品展示*/
+		.productlist{margin-top: 10px;background: rgba(251,210,210,.5);padding:20px 10px 0;text-align: center;}
+
+		.productlist-item{float:left;width: 200px;text-align: center;padding: 5px 0;margin:0 16px 30px;border: 2px solid rgba(255,255,255,.5);}
+		.productlist-item img{width: 191px;height: 191px;}
+		.item-tit{font-weight: normal;color: #797879;font-size: 16px;margin-top: 10px;}
+		.item-tit a:hover{color: red;text-decoration: underline;}
+		.productlist-item:hover{border-color: #ef506d;}
+		.productlist-item p{font-size: 16px;color: red;display: inline-block;line-height: 30px;font-weight: bold;}
+		.productlist-item p del{color: #ccc;font-size: 12px;padding-left: 10px;font-weight:normal;}
+		/*footer*/
+		.footer{text-align: center;background: #f9b0bd;padding: 30px 0;line-height: 25px;margin-top: 10px;}
+		.footer p, .footer p a{color: #fff;}
+		.footer i{font-style: normal;margin:0 10px;}
+		.footer a:hover{color:#ef506d; }
+
+
+	</style>
+</head>
+<body>
+<!-- header开始 -->
+ 	<div class="headerBar">
+		<!-- 头部开始 -->
+		<div class="headerTop">
+			<div class="comWidth clearfix">
+				<div class="left-area fl">
+					<a href="index.html" class="collection">花的首页</a>
+				</div>
+				<div class="right-area fr">
+					欢迎来到花的首页
+					<a href="login.html">[登录]</a><a href="register.html">[免费注册]</a>
+				</div>
+			</div>	
+		</div><!-- 头部结束 -->
+		<!-- logo开始 -->
+		<div class="logoBar">
+			<div class="comWidth cl">
+				<div class="logo fl">
+					<a href="index.html"><img src="image/logo.png" alt=""></a>
+				</div>
+				<div class="searchBox fl">
+					<input type="text" class="search-text fl" placeholder="请输入关键词">
+					<input type="button" class="search-btn" value="搜索">
+				</div>
+				<div class="shop-car fr">
+					<span class="shop-car-text fl">购物车</span>
+					<span class="shop-car-num fl">0</span>
+				</div>
+			</div>
+		</div><!-- logo结束 -->
+		<!-- 导航开始 -->
+		<div class="navBar">
+			<div class="comWidth clearfix">
+				<div class="shop-class fl">
+					<div class="shop-class-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<span class="all-class">全部分类</span>
+					<div class="shop-class-show">
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">玫瑰</a>
+									<a href="">木芙蓉</a>
+									<a href="">郁金香</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">紫罗兰</a>
+									<a href="">山茶花</a>
+									<a href="">茉莉</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">石竹</a>
+									<a href="">茉莉</a>
+									<a href="">水仙</a>
+									<a href="">茉莉</a>
+									<a href="">小草兰</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">金鱼草</a>
+									<a href="">银牙柳</a>
+									<a href="">茉莉</a>
+									<a href="">玉兰</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">迎春花</a>
+									<a href="">桃</a>
+									<a href="">丁香</a>
+									<a href="">茉莉</a>
+									<a href="">梅花</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">海棠</a>
+									<a href="">含笑花</a>
+									<a href="">荷花</a>
+									<a href="">风信子</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">春兰</a>
+									<a href="">桂花</a>
+									<a href="">栀子花</a>
+									<a href="">金钟</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">千日红</a>
+									<a href="">水仙</a>
+									<a href="">慈如花</a>
+									<a href="">牡丹</a>
+								</dt>
+							</dl>
+						</div>
+						<div class="item-bg">
+							<dl class="shop-class-item">
+								<dt class="item-cont">
+									<a href="">石蒜</a>
+									<a href="">瓜叶菊</a>
+									<a href="">凤仙花</a>
+									<a href="">茉莉</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<ul class="nav fl clearfix">
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="">仿真花</a></li>
+					<li><a href="">鲜花订购</a></li>
+					<li><a href="">开业花篮</a></li>
+					<li><a href="">绿植租售</a></li>
+					<li><a href="">园艺资材</a></li>
+					<li><a href="">联系我们</a></li>
+				</ul>
+			</div>
+		</div><!-- 导航结束 -->				
+	</div> <!-- header结束 -->
+	<!-- banner开始 -->
+	<div class="bannerBar comWidth">
+		<div class="swiper-container">
+			<ul class="swiper-wrapper clearfix">
+				<li class="current swiper-slide"><img src="image/banner1.png"/></li>
+				<li class="swiper-slide"><img src="image/banner2.png"/></li>
+				<li class="swiper-slide"><img src="image/banner3.png"/></li>
+			</ul>
+			<ul class="swiper-pagination">
+				<li class="lis"></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="swiper-button-prev com"> &lt </div>
+			<div class="swiper-button-next com"> &gt </div>
+		</div>
+	</div><!-- banner结束 -->
+	<!-- 商品列表开始 -->	
+	<div class="productTit comWidth">
+		<span class="product-icon"></span>
+		<h3 class="product-tit-text">仿真花</h3>
+		<a href="" class="more-arrow">更多 &gt;&gt;</a>
+	</div>
+	<div class="productBar comWidth">
+		<div class="productlist clearfix">
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-01.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-02.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-03.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-04.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-05.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="height-20"></div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-06.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-07.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-08.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-02.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-07.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+		</div>
+	</div>
+	<div class="productTit comWidth">
+		<span class="product-icon"></span>
+		<h3 class="product-tit-text">仿真花</h3>
+		<a href="" class="more-arrow">更多 &gt;&gt;</a>
+	</div>
+	<div class="productBar comWidth">
+		<div class="productlist clearfix">
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-01.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-02.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-03.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-04.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-05.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="height-20"></div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-06.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-07.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-08.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-02.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+			<div class="productlist-item">
+				<a href="detailed.html"><img src="image/product-07.jpg" alt=""></a>
+				<h3 class="item-tit"><a href="">今生挚爱---红玫瑰999朵</a></h3>
+				<p>￥520.00<del>￥999.00</del></p>
+			</div>
+		</div>
+	</div><!-- 商品列表结束 -->
+	<!-- footer开始 -->
+	<div class="footer">
+		<p>
+			<a href="">花卉简介</a><i>|</i>
+			<a href="">玫瑰杜鹃</a><i>|</i>
+			<a href="">牡丹</a><i>|</i>
+			<a href="">樱花花印</a><i>|</i>
+			<a href="">客服热线：00000000000</a>
+		</p>
+		<p>&copy 2018 版权所有 版权所有 版权所有 版权所有 版权所有 版权所有 版权所有</p>
+	</div>
+	<!-- footer结束  -->
+
+	 <!-- Swiper JS -->
+  <script src="js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
+</body>
+</html>
